@@ -2,18 +2,17 @@ const currency = require('currency.js');
 
 class ECM3TAX{
 
-    constructor(tradePrice, mrpWithGST, discount, advanceTax, quantity){
+    constructor(tradePrice, mrp, discount, advanceTax, quantity){
         this.tradePrice = currency(tradePrice);
-        this.mrpWithGST = currency(mrpWithGST);
+        this.mrp = currency(mrp);
         this.discount = currency(discount);
         this.advanceTax = currency(advanceTax, {precision: 3});
         this.quantity = currency(quantity);
     }
 
     //ECM-3 (MRP With GST in Invoice) 17% Tax :
-
     ECM3withGSTAmount() {
-        const GST = currency((this.mrpWithGST.value),{ precision: 5, increment: null }).divide(1.17).multiply(0.17);
+        const GST = currency((this.mrp.value),{ precision: 5, increment: null }).divide(1.17).multiply(0.17);
         const discountedAmount = currency((this.tradePrice.value)).multiply(this.discount.value);
         const discountedTP =  currency((this.tradePrice.value)).subtract(discountedAmount.value);
         const advanceTaxInAmount = currency((discountedTP.value), { precision: 5, increment: null }).add(GST).multiply(this.advanceTax.value);
@@ -23,7 +22,7 @@ class ECM3TAX{
 
     //ECM-3 (MRP Without GST in Invoice):
     ECM3withoutGSTAmount(){
-        const GST = currency((this.mrpWithGST.value),{ precision: 5, increment: null }).multiply(0.17);
+        const GST = currency((this.mrp.value),{ precision: 5, increment: null }).multiply(0.17);
         const discountedAmount = currency((this.tradePrice.value)).multiply(this.discount.value);
         const discountedTP =  currency((this.tradePrice.value)).subtract(discountedAmount.value);
         const advanceTaxInAmount = currency((discountedTP.value), { precision: 5, increment: null }).add(GST).multiply(this.advanceTax.value);

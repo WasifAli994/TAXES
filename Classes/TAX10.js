@@ -1,6 +1,6 @@
 const currency = require('currency.js');
 
-class ECM4TAX{
+class TAX10{
 
     constructor(tradePrice, mrp, discount, advanceTax, quantity){
         this.tradePrice = currency(tradePrice);
@@ -10,15 +10,15 @@ class ECM4TAX{
         this.quantity = currency(quantity);
     }
 
-    //ECM-4 (17% Tax):
-    ECM4Amount(){
+    //TAX-10 (17% Tax):
+    TAX10Amount(){
         const discountedAmount = currency((this.tradePrice.value)).multiply(this.discount.value);
         const discountedTP =  currency((this.tradePrice.value)).subtract(discountedAmount.value);
-        const GST = currency((discountedTP),{ precision: 5, increment: null }).multiply(0.17);
+        const GST = currency((discountedTP),{ precision: 5, increment: null }).multiply(0.1);
         const advanceTaxInAmount = currency((discountedTP.value), { precision: 5, increment: null }).add(GST).multiply(this.advanceTax.value);
         const totalAmount =  currency((discountedTP.value), { precision: 5, increment: null }).add(GST).add(advanceTaxInAmount.value);
         return totalAmount.value;
     }
 }
 
-module.exports = ECM4TAX;
+module.exports = TAX10;

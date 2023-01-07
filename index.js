@@ -1,5 +1,7 @@
 const currency = require('currency.js');
 const ECM3TAX = require('./Classes/ECM3TAX');
+const ECM4TAX = require('./Classes/ECM4TAX');
+const TAX10 = require('./Classes/TAX10');
 
 function main(){
 
@@ -14,7 +16,24 @@ function main(){
     console.log("ECM-3 with GST: ", ecm3Tax.ECM3withGSTAmount());
     console.log("ECM-3 without GST: " ,ecm3Tax.ECM3withoutGSTAmount());
 
-    
+    const ecm4Tax = new ECM4TAX(
+        /*tradePrice*/ 100, 
+        /*mrpWith/WithoutGST*/ 200, 
+        /*discount*/ 0.1, 
+        /*advanceTax*/ 0.005, 
+        /*quantity*/ 1 );
+
+    console.log("ECM-4 (17%): ", ecm4Tax.ECM4Amount());
+
+    const tax10 = new TAX10(
+        /*tradePrice*/ 100, 
+        /*mrpWith/WithoutGST*/ 200, 
+        /*discount*/ 0.1, 
+        /*advanceTax*/ 0.005, 
+        /*quantity*/ 1 );
+
+        console.log("TAX10 (17%): " ,tax10.TAX10Amount());
+
 }
 
 main();
