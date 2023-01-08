@@ -1,4 +1,4 @@
-const currency = require('currency.js');
+import currency from 'currency.js';
 
 class ECM3TAX{
 
@@ -31,4 +31,4 @@ class ECM3TAX{
     }
 }
 
-module.exports = ECM3TAX;
+export default ECM3TAX;

@@ -1,4 +1,4 @@
-const currency = require('currency.js');
+import currency from 'currency.js';
 
 class EXEMPtANDZERO_RATED{
 
@@ -21,4 +21,4 @@ class EXEMPtANDZERO_RATED{
     } 
 }
 
-module.exports = EXEMPtANDZERO_RATED;
+export default EXEMPtANDZERO_RATED;

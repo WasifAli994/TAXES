@@ -1,4 +1,4 @@
-const currency = require('currency.js');
+import currency from 'currency.js';
 
 class TAX10{
 
@@ -21,4 +21,4 @@ class TAX10{
     }
 }
 
-module.exports = TAX10;
+export default TAX10;

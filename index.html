@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <title>TAXES</title>
+</head>
+<body>
+    <div>
+        <div class="input">
+            <input type="number" class="tradePrice" placeholder="Trade Price">
+            <input type="number" class="mrp" placeholder="MRP">
+            <!--<select name="MRP Type" class="mrpType">
+                <option value="MRP with GST">MRP with GST</option>
+                <option value="MRP without GST">MRP without GST</option>
+            </select>-->
+            <input type="number" class="discount" placeholder="Discount">
+            <input type="number" class="advanceTax" placeholder="Advance Tax">
+            <input type="number" class="quantity" placeholder="Quantity">
+            <button type="number" value="Submit" class="button">Submit</button>
+        </div>
+        <div class="display">
+           <div>
+                <h1 class="ECM-3 Tax (With GST)"></h1>
+                <p class="ecm3WithGST"></p>
+            </div>
+            <div>
+                <h1 class="ECM-3 Tax (Without GST)"></h1>
+                <p class="ecm3WithoutGST"></p>
+            </div>
+            <div>
+                <h1 class="ECM-4 (17%)"></h1>
+                <p class="ecm4Tax"></p>
+            </div>
+            <div>
+                <h1 class="TAX10 (17%)"></h1>
+                <p class="tax10"></p>
+            </div>
+            <div>
+                <h1 class="EXEMPt AND ZERO_RATED Tax"></h1>
+                <p class="exemptAndZeroRated"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
